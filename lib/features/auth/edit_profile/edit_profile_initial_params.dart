@@ -1,0 +1,3 @@
+class EditProfileInitialParams {
+  const EditProfileInitialParams();
+}

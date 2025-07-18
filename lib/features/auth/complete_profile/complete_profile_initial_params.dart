@@ -1,0 +1,3 @@
+class CompleteProfileInitialParams {
+  const CompleteProfileInitialParams();
+}

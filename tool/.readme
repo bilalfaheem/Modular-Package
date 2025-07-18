@@ -1,0 +1,6 @@
+dart pub global activate mason_cli
+dart pub global activate mason
+mason init
+mason get
+mason new <name>
+mason make <name>

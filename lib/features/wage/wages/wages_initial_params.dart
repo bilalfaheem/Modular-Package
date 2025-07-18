@@ -1,0 +1,3 @@
+class WagesInitialParams {
+  const WagesInitialParams();
+}

@@ -1,0 +1,16 @@
+  import 'package:service/data/rest_api/{{name.snakeCase()}}_rest_api_repo.dart';
+import 'package:service/domain/usecase/{{name.snakeCase()}}_use_case.dart';
+import 'package:service/view_model/{{name.snakeCase()}}_view_model.dart';
+
+// <<<<<<<<<<<<<<<<<<<<<<<  {{name.pascalCase()}}  >>>>>>>>>>>>>>>>>>>>>>>
+
+
+  getIt.registerLazySingleton<{{name.pascalCase()}}Repo>(
+    ()=>  {{name.pascalCase()}}RestApiRepo(getIt()));
+
+
+  getIt.registerLazySingleton<{{name.pascalCase()}}UseCase>(()=>
+     {{name.pascalCase()}}UseCase(getIt()));
+
+  getIt.registerLazySingleton<{{name.pascalCase()}}ViewModel>(()=>
+      Get.put({{name.pascalCase()}}ViewModel(getIt())));

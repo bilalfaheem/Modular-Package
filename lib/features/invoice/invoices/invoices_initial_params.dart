@@ -1,0 +1,3 @@
+class InvoicesInitialParams {
+  const InvoicesInitialParams();
+}

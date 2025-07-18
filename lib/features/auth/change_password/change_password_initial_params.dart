@@ -1,0 +1,3 @@
+class ChangePasswordInitialParams {
+  const ChangePasswordInitialParams();
+}

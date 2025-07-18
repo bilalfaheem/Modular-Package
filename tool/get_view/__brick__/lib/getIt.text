@@ -1,0 +1,17 @@
+   import 'package:service/domain/repository/{{module.snakeCase()}}/{{name.snakeCase()}}_repo.dart';
+  import 'package:service/data/rest_api/{{name.snakeCase()}}_rest_api_repo.dart';
+import 'package:service/domain/usecase/{{name.snakeCase()}}_use_case.dart';
+import 'package:service/view_model/{{name.snakeCase()}}_view_model.dart';
+
+// <<<<<<<<<<<<<<<<<<<<<<<  {{name.pascalCase()}}  >>>>>>>>>>>>>>>>>>>>>>>
+
+
+  getIt.registerSingleton<{{name.pascalCase()}}Repo>(
+      {{name.pascalCase()}}Repo(getIt()));
+
+
+  getIt.registerSingleton<{{name.pascalCase()}}UseCase>(
+     {{name.pascalCase()}}UseCase(getIt()));
+
+  getIt.registerSingleton<{{name.pascalCase()}}ViewModel>(
+      Get.put({{name.pascalCase()}}ViewModel(getIt())))..{{name.camelCase()}}();

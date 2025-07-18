@@ -1,0 +1,18 @@
+# Register bricks which can be consumed via the Mason CLI.
+# Run "mason get" to install all registered bricks.
+# To learn more, visit https://docs.brickhub.dev.
+bricks:
+  post_view:
+    path: tool/post_view
+  get_view:
+    path: tool/get_view
+  post_integration:
+    path: tool_bloc/post_integration
+  get_integration:
+    path: tool/get_integration
+  boiler:
+    path: tool/boiler
+  additional_post:
+    path: tool/additional_post
+  additional_get:
+    path: tool/additional_get

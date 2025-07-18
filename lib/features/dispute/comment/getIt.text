@@ -1,0 +1,6 @@
+import 'package:service/domain/repository/dispute/comment_repo.dart';
+import 'package:service/data/rest_api/dispute/comment_rest_api_repo.dart';
+import 'package:service/features/dispute/comment/bloc/comment_bloc.dart';
+import 'package:service/domain/usecase/dispute/comment_use_case.dart';
+import 'package:service/features/dispute/comment/Comment_initial_params.dart';
+

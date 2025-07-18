@@ -1,0 +1,3 @@
+class CommentInitialParams {
+  const CommentInitialParams();
+}

@@ -1,0 +1,77 @@
+   import 'package:service/domain/repository/{{module.snakeCase()}}/{{name.snakeCase()}}_repo.dart';
+  import 'package:service/data/rest_api/{{name.snakeCase()}}_rest_api_repo.dart';
+import 'package:service/domain/validator/{{name.snakeCase()}}_validator.dart';
+import 'package:service/domain/usecase/{{name.snakeCase()}}_use_case.dart';
+import 'package:service/view_model/{{name.snakeCase()}}_view_model.dart';
+
+
+// <<<<<<<<<<<<<<<<<<<<<<<  {{name.pascalCase()}} ViewModel >>>>>>>>>>>>>>>>>>>>>>>
+import 'package:service/data/model/{{name.snakeCase()}}_data_model/{{name.snakeCase()}}_data_model.dart';
+
+
+ApiResponse<{{name.pascalCase()}}DataModel> {{name.camelCase()}}Response = ApiResponse.init();
+
+  set{{name.pascalCase()}}Response(ApiResponse<{{name.pascalCase()}}DataModel> response) {
+    {{name.camelCase()}}Response = response;
+    update();
+  }
+{{name.camelCase()}}() {
+    set{{name.pascalCase()}}Response(ApiResponse.loading());
+    _useCase.{{name.camelCase()}}Execute().then((value) => value.fold((err) {
+          set{{name.pascalCase()}}Response(ApiResponse.error(err.error));
+          Utils.logError(err.error.toString(), name: "{{name.pascalCase()}} Repo Error");
+        }, (res) {
+          set{{name.pascalCase()}}Response(ApiResponse.completed(res));
+        }));
+  }
+
+// <<<<<<<<<<<<<<<<<<<<<<<  {{name.pascalCase()}} Rest Api Repo  >>>>>>>>>>>>>>>>>>>>>>>
+ import 'package:service/domain/repository/{{module.snakeCase()}}/{{name.snakeCase()}}_repo.dart';
+import 'package:service/data/model/{{name.snakeCase()}}_data_model/{{name.snakeCase()}}_data_model.dart';
+
+  Future<Either<RepoFailure, {{name.pascalCase()}}DataModel>> {{name.camelCase()}}() =>
+      network
+          .get(
+            AppUrls.{{name.camelCase()}}Url,
+            Header.bearerHeaderWithApplicationJson(
+                UserStore.JWT.toString()),
+          )
+          .then((value) =>
+              value.fold((l) => left(RepoFailure(error: l.error)), (response) {
+                 try {
+                  return  right({{name.pascalCase()}}DataModel.fromJson(response));
+                } catch (e) {
+                  return left(RepoFailure(error: e.toString()));
+                }
+              }));
+// <<<<<<<<<<<<<<<<<<<<<<<  {{name.pascalCase()}} Repo  >>>>>>>>>>>>>>>>>>>>>>>
+
+import 'package:service/data/model/{{name.snakeCase()}}_data_model/{{name.snakeCase()}}_data_model.dart';
+
+
+  Future<Either<RepoFailure, {{name.pascalCase()}}DataModel>> {{name.camelCase()}}() =>
+      network
+          .get(
+            AppUrls.{{name.camelCase()}}Url,
+            Header.bearerHeaderWithApplicationJson(
+                UserStore.JWT.toString()),
+          )
+          .then((value) =>
+              value.fold((l) => left(RepoFailure(error: l.error)), (response) {
+                 try {
+                  return  right({{name.pascalCase()}}DataModel.fromJson(response));
+                } catch (e) {
+                  return left(RepoFailure(error: e.toString()));
+                }
+              }));
+
+// <<<<<<<<<<<<<<<<<<<<<<<  {{name.pascalCase()}} usecase  >>>>>>>>>>>>>>>>>>>>>>>
+
+import 'package:fpdart/fpdart.dart';
+import 'package:service/data/model/{{name.snakeCase()}}_data_model/{{name.snakeCase()}}_data_model.dart';
+import 'package:service/domain/failures/{{name.snakeCase()}}_failure.dart';
+
+  Future<Either<{{name.pascalCase()}}Failure, {{name.pascalCase()}}DataModel>> {{name.camelCase()}}Execute()async => await _repo.{{name.camelCase()}}().then((value) => value.fold(
+              (err) => left({{name.pascalCase()}}Failure(error: err.error)),
+              (response) => right(response)));
+

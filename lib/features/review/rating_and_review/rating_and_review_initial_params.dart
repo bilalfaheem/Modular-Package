@@ -1,0 +1,3 @@
+class RatingAndReviewInitialParams {
+  const RatingAndReviewInitialParams();
+}

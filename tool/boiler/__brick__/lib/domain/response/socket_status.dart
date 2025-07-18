@@ -1,0 +1,1 @@
+enum SocketStatus { INIT, CONNECTING, CONNECTED, ERROR }

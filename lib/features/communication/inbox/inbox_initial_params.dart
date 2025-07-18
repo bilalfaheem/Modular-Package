@@ -1,0 +1,3 @@
+class InboxInitialParams {
+  const InboxInitialParams();
+}

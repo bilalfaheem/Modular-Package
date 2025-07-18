@@ -1,0 +1,17 @@
+import 'package:service/domain/repository/communication/inbox_repo.dart';
+import 'package:service/data/rest_api/communication/inbox_rest_api_repo.dart';
+import 'package:service/features/communication/inbox/bloc/inbox_bloc.dart';
+import 'package:service/domain/usecase/communication/inbox_use_case.dart';
+import 'package:service/features/communication/inbox/Inbox_initial_params.dart';
+
+// <<<<<<<<<<<<<<<<<<<<<<<  Inbox  >>>>>>>>>>>>>>>>>>>>>>>
+
+
+  getIt.registerSingleton<InboxRepo>(
+      InboxRestApiRepo(getIt(),getIt()));
+
+
+  getIt.registerSingleton<InboxUseCase>(
+     InboxUseCase(getIt()));
+
+  getIt.registerFactoryParam<InboxBloc, InboxInitialParams, dynamic>((params, _) => InboxBloc(params, getIt()));

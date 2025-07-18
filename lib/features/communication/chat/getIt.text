@@ -1,0 +1,18 @@
+import 'package:service/domain/repository/communication/chat_repo.dart';
+import 'package:service/data/rest_api/communication/chat_rest_api_repo.dart';
+import 'package:service/features/communication/chat/bloc/chat_bloc.dart';
+import 'package:service/domain/usecase/communication/chat_use_case.dart';
+import 'package:service/features/communication/chat/Chat_initial_params.dart';
+
+
+// <<<<<<<<<<<<<<<<<<<<<<<  Chat  >>>>>>>>>>>>>>>>>>>>>>>
+
+
+  getIt.registerSingleton<ChatRepo>(
+      ChatRestApiRepo(getIt(),getIt()));
+
+
+  getIt.registerSingleton<ChatUseCase>(
+     ChatUseCase(getIt()));
+
+  getIt.registerFactoryParam<ChatBloc, ChatInitialParams, dynamic>((params, _) => ChatBloc(params, getIt()));

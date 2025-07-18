@@ -1,0 +1,17 @@
+import 'package:service/domain/repository/review/rating_and_review_repo.dart';
+import 'package:service/data/rest_api/review/rating_and_review_rest_api_repo.dart';
+import 'package:service/features/review/rating_and_review/bloc/rating_and_review_bloc.dart';
+import 'package:service/domain/usecase/review/rating_and_review_use_case.dart';
+import 'package:service/features/review/rating_and_review/RatingAndReview_initial_params.dart';
+
+// <<<<<<<<<<<<<<<<<<<<<<<  RatingAndReview  >>>>>>>>>>>>>>>>>>>>>>>
+
+
+  getIt.registerSingleton<RatingAndReviewRepo>(
+      RatingAndReviewRestApiRepo(getIt(),getIt()));
+
+
+  getIt.registerSingleton<RatingAndReviewUseCase>(
+     RatingAndReviewUseCase(getIt()));
+
+  getIt.registerFactoryParam<RatingAndReviewBloc, RatingAndReviewInitialParams, dynamic>((params, _) => RatingAndReviewBloc(params, getIt()));

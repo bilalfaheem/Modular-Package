@@ -1,0 +1,3 @@
+class StaffsInitialParams {
+  const StaffsInitialParams();
+}

@@ -1,0 +1,17 @@
+import 'package:service/domain/repository/wage/update_wage_repo.dart';
+import 'package:service/data/rest_api/wage/update_wage_rest_api_repo.dart';
+import 'package:service/features/wage/update_wage/bloc/update_wage_bloc.dart';
+import 'package:service/domain/usecase/wage/update_wage_use_case.dart';
+import 'package:service/features/Wage/UpdateWage/UpdateWage_initial_params.dart';
+
+// <<<<<<<<<<<<<<<<<<<<<<<  UpdateWage  >>>>>>>>>>>>>>>>>>>>>>>
+
+
+  getIt.registerSingleton<UpdateWageRepo>(
+      UpdateWageRepo(getIt(),getIt()));
+
+
+  getIt.registerSingleton<UpdateWageUseCase>(
+     UpdateWageUseCase(getIt(),getIt()));
+
+  getIt.registerFactoryParam<UpdateWageBloc, UpdateWageInitialParams, dynamic>((params, _) => UpdateWageBloc(params, getIt()));
